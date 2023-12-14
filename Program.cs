@@ -23,18 +23,56 @@
 // Задайте массив на 10 целых чисел. 
 // Напишите программу, которая определяет количество чётных чисел в массиве.
 
-int[] array = new int[10];
-int qaunt = 0;
+// int[] array = new int[10];
+// int qaunt = 0;
+// for (int i = 0; i < array.Length; i++)
+// {
+//     array[i] = new Random().Next(1,1000);
+//     System.Console.Write(array[i]+" ");
+//     if (array[i]%2 == 0)
+//     {
+//         qaunt++;
+//     }
+// }
+// System.Console.WriteLine();
+// System.Console.WriteLine("количество чётных чисел в массиве: "+qaunt);
+
+
+
+
+// Задача3: 
+// Задайте массив из вещественных чисел с ненулевой дробной частью. 
+// Найдите разницу между максимальным и минимальным элементов массива.
+
+// решение 
+
+System.Console.Write("Введите количество элементов в массиве: ");
+int num = Convert.ToInt32 (Console.ReadLine());
+double[] array = new double [num];
+
 for (int i = 0; i < array.Length; i++)
 {
-    array[i] = new Random().Next(1,1000);
-    System.Console.Write(array[i]+" ");
-    if (array[i]%2 == 0)
+    double fract = new Random().NextDouble();
+        if (fract != 0)
     {
-        qaunt++;
+        array[i] = new Random().Next(0,100) + fract;
+        System.Console.WriteLine(Math.Round(array[i], 3));
     }
 }
-System.Console.WriteLine();
-System.Console.WriteLine("количество чётных чисел в массиве: "+qaunt);
+
+int iMax = 0;
+int iMin = 0;
+for (int i = 1; i < array.Length; i++)
+{
+    if (array[i]>array[iMax])
+    {
+        iMax = i;
+    }
+    else if (array[i]<array[iMin])
+    {
+        iMin = i;
+    }
+}
+System.Console.WriteLine("Разница между максимальным и минимальным элементами массива " + Math.Round((array[iMax] - array[iMin]),3));
 
 
