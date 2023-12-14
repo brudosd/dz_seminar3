@@ -46,33 +46,69 @@
 
 // решение 
 
-System.Console.Write("Введите количество элементов в массиве: ");
-int num = Convert.ToInt32 (Console.ReadLine());
-double[] array = new double [num];
+// System.Console.Write("Введите количество элементов в массиве: ");
+// int num = Convert.ToInt32 (Console.ReadLine());
+// double[] array = new double [num];
 
-for (int i = 0; i < array.Length; i++)
+// for (int i = 0; i < array.Length; i++)
+// {
+//     double fract = new Random().NextDouble();
+//         if (fract != 0)
+//     {
+//         array[i] = new Random().Next(0,100) + fract;
+//         System.Console.WriteLine(Math.Round(array[i], 3));
+//     }
+// }
+
+// int iMax = 0;
+// int iMin = 0;
+// for (int i = 1; i < array.Length; i++)
+// {
+//     if (array[i]>array[iMax])
+//     {
+//         iMax = i;
+//     }
+//     else if (array[i]<array[iMin])
+//     {
+//         iMin = i;
+//     }
+// }
+// System.Console.WriteLine("Разница между максимальным и минимальным элементами массива " + Math.Round((array[iMax] - array[iMin]),3));
+
+
+// Задача 4**(не обязательно): 
+// Дано натуральное число в диапазоне от 1 до 100 000. 
+// Создайте массив, состоящий из цифр этого числа. 
+// Старший разряд числа должен располагаться на 0-м индексе массива, младший – на последнем. 
+// Размер массива должен быть равен количеству цифр.
+
+System.Console.Write("ВВедите число: ");
+int num = Convert.ToInt32(Console.ReadLine());
+int num2 = num;
+int sizeAr = 1;
+
+if (num>0 && num<100001)
 {
-    double fract = new Random().NextDouble();
-        if (fract != 0)
+    while (num/10 > 0)
     {
-        array[i] = new Random().Next(0,100) + fract;
-        System.Console.WriteLine(Math.Round(array[i], 3));
+        num = num/10;
+        sizeAr++;
+    }
+    int[] array = new int [sizeAr];
+    int[] array1 = new int [sizeAr];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = num2%10;
+        num2 = num2/10;
+    }
+    for (int i=array.Length-1; i >= 0; i--)    
+    {
+        array1[i] = array[i];
+        System.Console.Write(array1[i]+ " ");
     }
 }
-
-int iMax = 0;
-int iMin = 0;
-for (int i = 1; i < array.Length; i++)
+else
 {
-    if (array[i]>array[iMax])
-    {
-        iMax = i;
-    }
-    else if (array[i]<array[iMin])
-    {
-        iMin = i;
-    }
+    System.Console.WriteLine("Число не подходит");
 }
-System.Console.WriteLine("Разница между максимальным и минимальным элементами массива " + Math.Round((array[iMax] - array[iMin]),3));
-
 
